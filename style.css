@@ -1,0 +1,271 @@
+/*Normalización*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*Mantiene ancho y alto*/
+    font-family: 'Roboto Mono', monospace;
+    list-style: none; /*Quitar los puntosde decoración en las listas*/
+    text-decoration: none; /*Esto retira el subrayado del anchor*/
+    color: white;
+
+}
+
+body{
+    background-color: black; /*TO DO, BORRAR CUANDO TENGAMOS EL FONDO FINAL*/
+}
+
+header{
+    position: fixed; /*Fija el header en la parte superior*/
+    right: 0;
+    top: 0;
+    z-index: 100; /*Se muestre por encima o salido*/
+    width: 100%;
+    display: flex;  /*Se pongan en línea*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 800; /*Grueso de las letras*/
+}
+
+.navlist{
+    display: flex; /*Elementos se pongan en linea*/
+}
+
+.navlist a{
+    margin-left: 60px; /*Separa las opciones*/
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; /*Subrayado trasnparente*/
+    transition: all .5s ease; /*Animar características del .navlist a*/
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white; /*Subrayado blanco*/
+}
+
+#menu-icon{
+    display: none;  /*Se ve cuando la página colapse horizontalmente*/
+}
+
+#menu-icon{
+    color: white;
+    font-size: 35px;
+    z-index: 101; /*Está sobre el header*/
+    cursor: pointer; /*Manito*/
+}
+#menu-toggle{
+    display: none; /*Jamas mostrar checkbox*/
+}
+
+.menu-icon-action{
+    display: none;  /*Para no permitir click*/
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, #31494e 0%, #385E70 25%, #131313 75%); /*fondo gradiente*/
+    position: relative; /*Relativo el contenedor (top,bottom, left, right)*/
+    display: grid; /*Dividir el hero en columnas*/
+    grid-template-columns: 1fr 1fr; /*2 columnas*/
+    align-items: center; 
+    gap: 2rem; /*Espacio entre las columnas*/
+}
+
+section{
+    padding: 0 8%;
+}
+
+.hero-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h4{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.hero-text h1{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text p{
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-img img{
+    width: 400px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 5s linear; /*Transicion lineal*/
+}
+
+.hero-img img:hover{
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text a{
+    display: inline-block;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.linkedin{
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.linkedin i{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block;
+    margin: 26px;
+    font-size: 24px;
+    transition: all 0.5s ease;
+}
+
+.icons i:hover{
+    color: #4D4D4D;
+    transform: translateY(-5px);
+}
+
+.scrolldown{
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scrolldown i{
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.scrolldown i:hover{
+    transform: translateY(-5px);
+}
+
+/*en esta seccion se hace mediaqueries para que sea responsive*/
+
+/*TABLETS*/
+@media (max-width:992px){
+    section{
+        padding: 0 3%;
+        transition: 0.2s;
+    }
+
+    .icons{
+        display: none;
+    }
+
+    .hero-text{
+        padding-top: 0;
+    }
+
+    .hero-img{
+        text-align: center;
+    }
+
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p{
+        font-size: 70%;
+    }
+
+    .scrolldown{
+        display: none;
+    }
+}
+/*CELULARES*/
+@media (max-width: 768px){
+    .menu-icon-action{
+        display: block;
+    }
+
+    #menu-icon{
+        display:block;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img{
+        margin: 0;
+    }
+
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 240px;
+        background-color: #021719ef;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all 0.5s ease;
+    }
+
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0;
+    }
+}
